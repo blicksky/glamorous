@@ -1,4 +1,5 @@
 import React from 'react'
+import importedPropTypes from 'prop-types'
 import {isPreact} from './constants'
 
 let PropTypes
@@ -76,12 +77,7 @@ if (isPreact) {
   /* eslint-enable no-eq-null, eqeqeq, consistent-return */
 } else if (parseFloat(React.version.slice(0, 4)) >= 15.5) {
   /* istanbul ignore next */
-  try {
-    PropTypes = require('prop-types')
-    /* istanbul ignore next */
-  } catch (error) {
-    // ignore
-  }
+  PropTypes = importedPropTypes
 }
 /* istanbul ignore next */
 PropTypes = PropTypes || React.PropTypes
